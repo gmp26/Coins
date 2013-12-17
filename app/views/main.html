@@ -8,10 +8,10 @@
 
 
 <h3>Current Total = {{sum}}</h3>
-<h3>Average Coin Count = {{averageCount}}</h3>
+<h3 ng-show="averageCount > 0">Average count = {{averageCount}}</h3>
 
 <h4>Results</h4>
-<table class="table table-striped">
+<table class="table table-striped table-hover">
   <thead>
     <tr>
       <th>Total</th>

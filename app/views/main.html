@@ -1,0 +1,30 @@
+<h1>Coins</h1>
+<p>You have these coins available:</p>
+
+<div class="btn-group">
+  <button ng-repeat="coin in coins" class="btn" ng-click="addCoin($index)">{{coin}}</button>
+  <button class="btn btn-primary" ng-click="saveTotal()">Save</button>
+</div>
+
+
+<h3>Current Total = {{sum}}</h3>
+<h3>Average Coin Count = {{averageCount}}</h3>
+
+<h4>Results</h4>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Total</th>
+      <th>Count</th>
+      <th>List</th>
+    </tr>
+    <tbody>
+      <tr ng-repeat="record in savedTotals">
+        <td>{{record.sum}}</td>
+        <td>{{record.count}}</td>
+        <td>{{showList($index)}}</td>
+      </tr>
+    </tbody>
+  </thead>
+</table>
+

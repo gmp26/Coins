@@ -1,5 +1,5 @@
 'use strict'
-{fold, span, any, unique, tail} = require 'prelude-ls'
+{fold, span, any, all, unique, tail, id, zip-with} = require 'prelude-ls'
 
 angular.module 'coinsApp'
   .controller 'MainCtrl', <[$scope $routeParams]> ++ ($scope, $routeParams) ->
@@ -21,14 +21,20 @@ angular.module 'coinsApp'
         ""
 
     listsEqual = (xs, ys) ->
-      if xs.length != ys.length
-        false
-      else
-        if xs.length == 0
-          true
-        else
-          [[x, ...xs1], [y, ...ys1]] = [xs, ys]
-          (x == y && (listsEqual xs1, ys1))
+      xs.length == ys.length and all id, zip-with ((a,b) -> a==b), xs, ys
+
+    #
+    # works, but longer
+    #
+    # listsEqual = (xs, ys) ->
+    #   if xs.length != ys.length
+    #     false
+    #   else
+    #     if xs.length == 0
+    #       true
+    #     else
+    #       [[x, ...xs1], [y, ...ys1]] = [xs, ys]
+    #       (x == y && (listsEqual xs1, ys1))
 
     saveIf = (options, sortedList, record) ->
       [lessThan, rest] = span (.sum < record.sum), sortedList

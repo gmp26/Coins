@@ -102,7 +102,7 @@ angular.module 'coinsApp'
     parseListParameter = (param) ->
       return (param.split '-')
         .map (v) -> +v
-        .filter (v) -> v == ~~v and v == Math.round(v)
+        .filter (v) -> v == ~~v and v == Math.round v
         .sort (a,b) -> if a < b then 1 else if a > b then -1 else 0
 
     if $routeParams
@@ -114,8 +114,8 @@ angular.module 'coinsApp'
         if $routeParams[param]
           addCoinList parseListParameter $routeParams[param]
 
-    console.debug $routeParams.save0
-    console.debug $routeParams.save1
-    console.debug $routeParams.save2
+    # console.debug $routeParams.save0
+    # console.debug $routeParams.save1
+    # console.debug $routeParams.save2
 
 

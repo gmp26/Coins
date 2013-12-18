@@ -16,12 +16,17 @@
     <tr>
       <th>Total</th>
       <th>Count</th>
+      <th>Greedy?</th>
       <th>List</th>
     </tr>
     <tbody>
       <tr ng-repeat="record in savedTotals">
         <td>{{record.sum}}</td>
         <td>{{record.count}}</td>
+        <td>
+          <span class="icon-ok" ng-show="record.greedy"> </span>
+          <span class="icon-remove" ng-hide="record.greedy"> </span>
+        </td>
         <td>{{showList($index)}}</td>
       </tr>
     </tbody>

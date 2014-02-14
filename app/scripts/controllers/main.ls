@@ -92,7 +92,6 @@ angular.module 'coinsApp'
       record = $scope.savedTotals[index]
       record.list.join ','
 
-
     $scope.reset!
 
     $scope.addCoin = (index) ->
